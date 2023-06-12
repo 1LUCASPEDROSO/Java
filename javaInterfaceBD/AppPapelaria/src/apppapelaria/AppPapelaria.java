@@ -12,9 +12,10 @@ public class AppPapelaria {
      String resposta;
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        System.out.println("Digite aqui");
-        String resposta = read.next();
-        System.out.println("sua resposta foi:"+resposta);
-    }
+        ClassProduct Cp = new ClassProduct();
+        Cp.createProdutc();
+        Cp.listProducts();
 
+
+    }
 }
