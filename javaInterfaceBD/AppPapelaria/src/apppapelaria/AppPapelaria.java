@@ -12,10 +12,9 @@ public class AppPapelaria {
      String resposta;
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        ClassProduct Cp = new ClassProduct();
-        Cp.createProdutc();
-        Cp.listProducts();
-
-
+        GestProducts Gp = new GestProducts();
+        Gp.createProdutc();
+        Gp.ListProduct();
+        Gp.deleteProduct();
     }
 }
