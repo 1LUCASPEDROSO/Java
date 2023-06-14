@@ -5,14 +5,28 @@ public class GestProducts {
     ArrayList <ClassProduct> gest  = new ArrayList <>();
     Scanner read = new Scanner(System.in);
      int opcao;
+     String opcaoRefazer;
+     boolean returnLoop = true;
     public void createProdutc() {
-        System.out.print("Digit here the name product: ");
-        Cp.setNameProduct(read.next());
-        System.out.print("Digit here the quantity product: ");
-        Cp.setQuantity(read.nextInt());
-        System.out.print("Digit here the price product: ");
-        Cp.setPrice(read.nextDouble());
-        gest.add(Cp);
+        while(returnLoop == true){
+            System.out.print("Digit here the name product: ");
+            Cp.setNameProduct(read.next());
+            System.out.print("Digit here the quantity product: ");
+            Cp.setQuantity(read.nextInt());
+            System.out.print("Digit here the price product: ");
+            Cp.setPrice(read.nextDouble());
+            gest.add(Cp);
+            System.out.println("make one more item ?\n write yes or y to do");
+            opcaoRefazer = read.next();
+           if (opcaoRefazer.equalsIgnoreCase("yes") || opcaoRefazer.equalsIgnoreCase( "y"))
+            {
+                returnLoop = true;
+            }
+           else
+           {
+               returnLoop = false;
+           }
+        }
     }
     
     public void ListProduct()
@@ -27,7 +41,7 @@ public class GestProducts {
     public ArrayList<ClassProduct> deleteProduct()
     {
         for (int i=0;i<gest.size();i++) {
-            System.out.println("position ="+ i);
+            System.out.println("position = "+ i);
             System.out.println(gest.get(i).getNameProduct());
             System.out.println(gest.get(i).getQuantity());
             System.out.println(gest.get(i).getPrice());
