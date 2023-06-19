@@ -10,7 +10,7 @@ public class main {
         do {
             System.out.println("================================================================================");
             System.out.println("Digite a operaçao que deseja realizar");
-            System.out.println(" 1 - Cadastrar \n 2 - Listar \n 3 - Deletar \n 4 - Atualizar");
+            System.out.println(" 1 - Cadastrar \n 2 - Listar \n 3 - Deletar \n 4 - Atualizar \n 5 - Comprar");
             System.out.print("Digite aqui: ");
             escolhaAcao = read.nextInt();
             switch (escolhaAcao)
@@ -27,6 +27,8 @@ public class main {
                 case 4:
                     GE.AtualizarProduto();
                     break;
+                case 5:
+                    GE.ComprarProduto();
                 default:
                     System.err.println();
             }

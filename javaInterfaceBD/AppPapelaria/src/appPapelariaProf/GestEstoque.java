@@ -9,6 +9,7 @@ public class GestEstoque {
     int opcaoMenuAtualizar;
     int opcaoCompra;
     int quantidadeCompra;
+    float totalPrecoCompra;
 
     public void inserirDados()
     {
@@ -87,15 +88,17 @@ public class GestEstoque {
          if (quantidadeCompra > lista.get(opcaoCompra).getQuantidade())
          {
              do {
-                 System.out.println("você escolheu mais items do que existem no inventário digite novamente a quantidade: ");
+                 System.out.print("você escolheu mais items do que existem no inventário digite novamente a quantidade: ");
                  quantidadeCompra = read.nextInt();
 
              } while (quantidadeCompra > lista.get(opcaoCompra).getQuantidade());
          }
-         else
+         else if (quantidadeCompra < lista.get(opcaoCompra).getQuantidade());
          {
+             totalPrecoCompra = quantidadeCompra * lista.get(opcaoCompra).getPrecoUnitário();
              int totalquantiade = lista.get(opcaoCompra).getQuantidade()- quantidadeCompra;
              lista.get(opcaoCompra).setQuantidade(totalquantiade);
+             System.out.println("Seu total foi de: R$" +totalPrecoCompra);
              System.out.println("Obrigado pela sua compra");
          }
         return lista;
