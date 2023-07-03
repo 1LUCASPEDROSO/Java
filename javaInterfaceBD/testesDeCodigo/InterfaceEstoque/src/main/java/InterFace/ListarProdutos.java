@@ -79,11 +79,14 @@ public class ListarProdutos extends javax.swing.JFrame {
 
     private void btnListarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProdutosActionPerformed
         ArrayList<DadosEstoque> lista = new ArrayList<>();
+        System.out.println(lista.size());
         for(int i=0; i< lista.size();i++)
         {
             JTextField listaP = new JTextField();
            listaP.setBounds(50, 50, 200, 30);
            listaP.setText("id do ptofuto:"+(i+1)+" nome do produto: "+lista.get(i).getNomeproduto()+ " descricão: "+lista.get(i).getQuantidade()+ "preço: "+lista.get(i).getPrecoUnitário());
+           ListarProdutos Lp = new ListarProdutos();
+           Lp.add(listaP);
         }
          
            
