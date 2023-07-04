@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 public class ConnectionDB {
     
-    private static final String URL= "mysql://localhost:3306/db_agenda?useTimeZone=true&serverTimeZone=UTC";
+    private static final String URL= "jdbc:mysql://localhost:3306/db_agenda?useTimeZone=true&serverTimeZone=UTC";
     private static final String USER="root";
     private static final String PASSWORD="";
     
@@ -17,5 +17,5 @@ public class ConnectionDB {
         {
             throw new SQLException("Error in try connection. ERROR "+error.getMessage());
         }
-    }// method
+    }// method  jdbc:mysql://localhost:3306/db_agenda
 }// class

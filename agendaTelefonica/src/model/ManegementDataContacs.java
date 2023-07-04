@@ -17,7 +17,7 @@ public class ManegementDataContacs {
         try {
             Connection conn = ConnectionDB.conection();
             Statement sql = conn.createStatement();
-            String query = "insert into contatos values(null,'"+Dc.getNomeCOntato()+"',"+Dc.getTelefoneContato()+",'"+Dc.getEmailContato()+"');";
+            String query = "insert into contatos values(null,'"+Dc.getNomeCOntato()+"','"+Dc.getTelefoneContato()+"','"+Dc.getEmailContato()+"');";
             sql.execute(query);
             sql.close();
             conn.close();

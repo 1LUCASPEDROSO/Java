@@ -12,7 +12,7 @@ package model;
 public class DataContact {
      private int idContato;
     private String nomeCOntato;
-    private int telefoneContato;
+    private String telefoneContato;
     private String emailContato;  
 
     public int getIdContato() {
@@ -31,11 +31,11 @@ public class DataContact {
         this.nomeCOntato = nomeCOntato;
     }
 
-    public int getTelefoneContato() {
+    public String getTelefoneContato() {
         return telefoneContato;
     }
 
-    public void setTelefoneContato(int telefoneContato) {
+    public void setTelefoneContato(String telefoneContato) {
         this.telefoneContato = telefoneContato;
     }
 
