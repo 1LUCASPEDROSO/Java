@@ -11,7 +11,7 @@ package model;
  */
 public class DataContact {
      private int idContato;
-    private String nomeCOntato;
+    private String nomeContato;
     private String telefoneContato;
     private String emailContato;  
 
@@ -23,12 +23,12 @@ public class DataContact {
         this.idContato = idContato;
     }
 
-    public String getNomeCOntato() {
-        return nomeCOntato;
+    public String getNomeContato() {
+        return nomeContato;
     }
 
     public void setNomeCOntato(String nomeCOntato) {
-        this.nomeCOntato = nomeCOntato;
+        this.nomeContato = nomeCOntato;
     }
 
     public String getTelefoneContato() {

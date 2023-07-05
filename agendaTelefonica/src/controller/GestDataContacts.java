@@ -7,6 +7,7 @@ package controller;
 import model.DataContact;
 import model.ManegementDataContacs;
 import java.sql.SQLException;
+import java.util.ArrayList;
 /**
  *
  * @author 182120037
@@ -16,4 +17,8 @@ public class GestDataContacts {
         {
             ManegementDataContacs.insertContacts(dc);
         }// insert
+        public ArrayList<DataContact> listContacts()throws SQLException
+        {
+            return ManegementDataContacs.listsContacts();
+        }// list
 }// class 
