@@ -64,6 +64,7 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
         tableDataContact = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         btnVC = new javax.swing.JButton();
+        btnDeletar = new javax.swing.JButton();
 
         setTitle("listar contatos");
 
@@ -113,20 +114,31 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
             }
         });
 
+        btnDeletar.setText("<html>\n<h2>Deletar</h2>\n</html>");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(151, 151, 151)
                 .addComponent(btnVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
+                .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(btnVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeletar))
                 .addContainerGap(149, Short.MAX_VALUE))
         );
 
@@ -160,8 +172,33 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
         atualizeTable();
     }//GEN-LAST:event_btnVCActionPerformed
 
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        try {
+            int rowSelected = tableDataContact.getSelectedRow();
+            if(rowSelected == -1)
+            {
+                JOptionPane.showMessageDialog(null,"Selecione o Id do contato que deseja apagar");
+            }
+            else
+            {
+               String code = (String) tableDataContact.getValueAt(rowSelected, 0);
+               DataContact Dc = new DataContact();
+               Dc.setIdContato(Integer.parseInt(code));
+               GestDataContacts Gdc = new GestDataContacts();
+               Gdc.deleteContact(Dc);
+               atualizeTable();
+                JOptionPane(null, "ok", "contato apagado com sucesso",1);
+            }
+            
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(null,"ERRO ao deletar contato "+error.getMessage());
+        }
+            
+    }//GEN-LAST:event_btnDeletarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnVC;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

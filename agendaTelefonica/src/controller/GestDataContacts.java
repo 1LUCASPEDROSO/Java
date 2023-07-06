@@ -21,4 +21,8 @@ public class GestDataContacts {
         {
             return ManegementDataContacs.listsContacts();
         }// list
+        public void  deleteContact(DataContact dc)throws SQLException
+        {
+             ManegementDataContacs.deleteContact(dc);
+        }// delete
 }// class 

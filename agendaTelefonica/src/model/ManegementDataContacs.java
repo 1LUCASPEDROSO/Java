@@ -51,4 +51,17 @@ public class ManegementDataContacs {
             throw new SQLException("Error in list all contacts "+error.getMessage());
         }
     }// method listContacs
+    public static void deleteContact(DataContact Dc) throws SQLException
+    {
+        try {
+             Connection conn = ConnectionDB.conection();
+            Statement sql = conn.createStatement();
+            String query = "delete from contatos where  id_contato ="+Dc.getIdContato();
+            sql.execute(query);
+            sql.close();
+            conn.close();
+        } catch (SQLException error) {
+            throw new SQLException("Erro to delete this contact"+error.getMessage());
+        }
+    }// method deleteContact
 }// class
