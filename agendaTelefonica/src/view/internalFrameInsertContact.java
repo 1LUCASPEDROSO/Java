@@ -148,6 +148,7 @@ public class internalFrameInsertContact extends javax.swing.JInternalFrame {
           GestDataContacts Gdc = new GestDataContacts();
           Gdc.insertContact(dc);
           JOptionPane.showMessageDialog(null, "Contato cadastrado no DB","sucesso",1);
+          clearInput();
        }catch (SQLException error)
        {
            JOptionPane.showMessageDialog(null, "Erro ao cadastrar contato no DB\nCausa: "+error.getMessage(),"ERRO",1);

@@ -22,8 +22,13 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
      */
     public internalFrameListContcts() {
         initComponents();
+        painelSetData.setVisible(false);
     }
-
+    public void clearInput()
+    {   textNome.setText(null);
+        textPhone.setText(null);
+        textEmail.setText(null );
+    }
     DefaultTableModel Dtn = new DefaultTableModel(
             new Object[][]{},
             new Object[]{"ID", "NOME", "TELEFONE", "EMAIL"});
@@ -46,7 +51,7 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
             }// for
             tableDataContact.setModel(Dtn);
         } catch (Exception e) {
-            JOptionPane(null,"ERRO ao contrsuir a table "+e.getMessage(),"ERRO",1);
+            JOptionPane.showMessageDialog(null,"ERRO ao contrsuir a table "+e.getMessage(),"ERRO",1);
         }
     }// method atualizeTable
 
@@ -65,6 +70,17 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         btnVC = new javax.swing.JButton();
         btnDeletar = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
+        painelSetData = new javax.swing.JPanel();
+        labelNome = new javax.swing.JLabel();
+        labelTelefone = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        textNome = new javax.swing.JTextField();
+        textEmail = new javax.swing.JTextField();
+        textPhone = new javax.swing.JFormattedTextField();
+        labelID = new javax.swing.JLabel();
+        textId = new javax.swing.JTextField();
 
         setTitle("listar contatos");
 
@@ -105,7 +121,7 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AÇÕES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 0, 51))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "AÇÕES", 0, 0, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 0, 51))); // NOI18N
 
         btnVC.setText("<html>\n<H2>Vizualiar Contatos </H2>\n</html>");
         btnVC.addActionListener(new java.awt.event.ActionListener() {
@@ -121,25 +137,113 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
             }
         });
 
+        btnEditar.setText("<html> <H2>Salvar</H2> </html>");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+
+        btnAtualizar.setText("<html> <h2>Selecionar contato</h2> </html>");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(151, 151, 151)
+                .addGap(12, 12, 12)
                 .addComponent(btnVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeletar))
-                .addContainerGap(149, Short.MAX_VALUE))
+                    .addComponent(btnDeletar)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizar))
+                .addContainerGap())
+        );
+
+        labelNome.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelNome.setText("Nome:");
+
+        labelTelefone.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelTelefone.setText("Telefone:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setText("Email:");
+
+        try {
+            textPhone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        labelID.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelID.setText("ID contato:");
+
+        textId.setEditable(false);
+
+        javax.swing.GroupLayout painelSetDataLayout = new javax.swing.GroupLayout(painelSetData);
+        painelSetData.setLayout(painelSetDataLayout);
+        painelSetDataLayout.setHorizontalGroup(
+            painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelSetDataLayout.createSequentialGroup()
+                .addGap(197, 197, 197)
+                .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(painelSetDataLayout.createSequentialGroup()
+                            .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelTelefone))
+                            .addGap(18, 18, 18)
+                            .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textNome)
+                                .addComponent(textPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(painelSetDataLayout.createSequentialGroup()
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(painelSetDataLayout.createSequentialGroup()
+                        .addComponent(labelID, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textId, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        painelSetDataLayout.setVerticalGroup(
+            painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelSetDataLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelID)
+                    .addComponent(textId, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNome)
+                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTelefone)
+                    .addComponent(textPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(painelSetDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,18 +254,25 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(painelSetData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(painelSetData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -187,7 +298,7 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
                GestDataContacts Gdc = new GestDataContacts();
                Gdc.deleteContact(Dc);
                atualizeTable();
-                JOptionPane(null, "ok", "contato apagado com sucesso",1);
+                JOptionPane.showMessageDialog(null, "ok", "contato apagado com sucesso",1);
             }
             
         } catch (Exception error) {
@@ -196,18 +307,69 @@ public class internalFrameListContcts extends javax.swing.JInternalFrame {
             
     }//GEN-LAST:event_btnDeletarActionPerformed
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+                try {
+            DataContact Dc = new DataContact();
+            Dc.setIdContato (Integer.parseInt(textId.getText()));
+            Dc.setNomeCOntato(textNome.getText());
+            Dc.setTelefoneContato(textPhone.getText());
+            Dc.setEmailContato(textEmail.getText());
+            GestDataContacts Gdc = new GestDataContacts();
+            Gdc.atualizeContact(Dc);
+             atualizeTable();
+             JOptionPane.showMessageDialog(null, "contato atualizado com sucesso","aviso",1);
+             //clearInput();
+              painelSetData.setVisible(false);
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "erro ao atualizar o contato "+e.getMessage(),"aviso",1);
+        }
+             
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
+         try {
+            int rowSelected = tableDataContact.getSelectedRow();
+            if(rowSelected == -1)
+            {
+                JOptionPane.showMessageDialog(null,"Selecione o contato que deseja atualizar");
+            }
+            else
+            {
+                painelSetData.setVisible(true);
+                String id  = (String) tableDataContact.getValueAt(rowSelected, 0);
+                String nome = (String) tableDataContact.getValueAt(rowSelected, 1);
+                String telefone = (String) tableDataContact.getValueAt(rowSelected, 2);
+                String email  = (String) tableDataContact.getValueAt(rowSelected, 3);
+                textId.setText(id);
+                textNome.setText(nome);
+                textPhone.setText(telefone);
+                textEmail.setText(email);       
+            }
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(null,"ERRO ao selecionar contato "+error.getMessage());
+        }
+    }//GEN-LAST:event_btnAtualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnDeletar;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnVC;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelID;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelTelefone;
+    private javax.swing.JPanel painelSetData;
     private javax.swing.JTable tableDataContact;
+    private javax.swing.JTextField textEmail;
+    private javax.swing.JTextField textId;
+    private javax.swing.JTextField textNome;
+    private javax.swing.JFormattedTextField textPhone;
     // End of variables declaration//GEN-END:variables
 
-    private void JOptionPane(Object object, String string, String erro, int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

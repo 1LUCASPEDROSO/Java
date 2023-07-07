@@ -25,4 +25,8 @@ public class GestDataContacts {
         {
              ManegementDataContacs.deleteContact(dc);
         }// delete
+        public void atualizeContact(DataContact dc)throws SQLException
+        {
+            ManegementDataContacs.atualizeContact(dc);
+        }
 }// class 
