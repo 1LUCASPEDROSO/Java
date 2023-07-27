@@ -3,6 +3,7 @@ use db_store;
 create table product (
  id_product int not null auto_increment primary key,
  name_product varchar(100) not null,
+ dscription_product varchar(500) not null, 
  quantity_product int not null,
  price_product double not null
 );
@@ -11,7 +12,7 @@ create table method_payment
 id_method int not null auto_increment primary key,
 name_method varchar(50) not null
 );
-create table transition
+create table order_product
 (
 id_transition int not null auto_increment primary key,
 total_transition int not null,
