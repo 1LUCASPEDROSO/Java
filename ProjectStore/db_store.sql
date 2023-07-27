@@ -15,7 +15,7 @@ name_method varchar(50) not null
 create table order_product
 (
 id_transition int not null auto_increment primary key,
-total_transition int not null,
+total_transition double not null,
 payment_method int not null,
 product_id int not null,
 foreign key (payment_method) references method_payment(id_method),
