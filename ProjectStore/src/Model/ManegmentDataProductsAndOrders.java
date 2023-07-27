@@ -14,7 +14,7 @@ import java.sql.ResultSet;
  * @author pedro
  */
 public class ManegmentDataProductsAndOrders {
-    public static void insertContacts(DataProduct Dp) throws SQLException
+    public static void insertProduct(DataProduct Dp) throws SQLException
     {
         try {
             Connection conn = ConnectionDB.conection();
@@ -81,8 +81,15 @@ public class ManegmentDataProductsAndOrders {
     
     public static void insetOrder(DataProduct Dp , DataOrder Do) throws SQLException
     {
-        Connection conn = ConnectionDB.conection();
+        try {
+             Connection conn = ConnectionDB.conection();
         Statement sql = conn.createStatement();
-        String query = "insert into order_product values (null,'"+Dp.getId_product()+"')";
-    }// method insertOrderDebit
+        String query = "insert into order_product values (null,'"+Do.getTotalOrder()+"','"+Do.getPaymentMethod()+"','"+Dp.getId_product()+"')";
+        sql.execute(query);
+        sql.close();
+        conn.close();
+        } catch (SQLException error) {
+            throw new SQLException("Error on insert oder"+error.getMessage());
+        }
+    }// method insertOrder
 }// class
