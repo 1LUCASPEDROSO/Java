@@ -24,13 +24,13 @@ public class GestManegmentDataProductsAndOrders {
             return ManegmentDataProductsAndOrders.listProduct();
         }// list
     public void  deleteProduct(DataProduct Dp)throws SQLException
-        {
+    {
              ManegmentDataProductsAndOrders.deleteProduct(Dp);
-        }// delete
-        public void atualizeContact(DataProduct Dp)throws SQLException
+     }// delete
+        public void atualizeProduct(DataProduct Dp)throws SQLException
         {
             ManegmentDataProductsAndOrders.updateProduct(Dp);
-        }
+    }
     public void insertOrder (DataProduct Dp, DataOrder Do) throws SQLException
     {
         ManegmentDataProductsAndOrders.insetOrder(Dp, Do);
