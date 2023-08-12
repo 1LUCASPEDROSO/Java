@@ -5,6 +5,8 @@
  */
 package view;
 
+import View.InsertProduct;
+
 /**
  *
  * @author 182120037
@@ -27,21 +29,48 @@ public class index extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        menuInsertProduct = new javax.swing.JMenu();
+        menuListProduct = new javax.swing.JMenu();
+        menuEditProduct = new javax.swing.JMenu();
+        menuDeleteProduct = new javax.swing.JMenu();
+        menuBuyProduct = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        jDesktopPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 817, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 741, Short.MAX_VALUE)
+        );
 
-        jMenu3.setText("File");
-        jMenuBar1.add(jMenu3);
+        menuInsertProduct.setText("Insert Product");
+        menuInsertProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInsertProductActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuInsertProduct);
+
+        menuListProduct.setText("list Product");
+        jMenuBar1.add(menuListProduct);
+
+        menuEditProduct.setText("edit product");
+        jMenuBar1.add(menuEditProduct);
+
+        menuDeleteProduct.setText("deleteProduct");
+        jMenuBar1.add(menuDeleteProduct);
+
+        menuBuyProduct.setText("Buy product");
+        jMenuBar1.add(menuBuyProduct);
 
         setJMenuBar(jMenuBar1);
 
@@ -49,15 +78,31 @@ public class index extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+            .addGap(0, 817, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGap(0, 741, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuInsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInsertProductActionPerformed
+        InsertProduct IFIP = new InsertProduct();
+        jDesktopPane1.add(IFIP);
+        IFIP.setVisible(true);
+    }//GEN-LAST:event_menuInsertProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -95,9 +140,12 @@ public class index extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuBuyProduct;
+    private javax.swing.JMenu menuDeleteProduct;
+    private javax.swing.JMenu menuEditProduct;
+    private javax.swing.JMenu menuInsertProduct;
+    private javax.swing.JMenu menuListProduct;
     // End of variables declaration//GEN-END:variables
 }
