@@ -10,14 +10,14 @@ package Model;
  * @author pedro
  */
 public class DataOrder {
-    private int totalOrder;
+    private double totalOrder;
     private int paymentMethod;
 
-    public int getTotalOrder() {
+    public double getTotalOrder() {
         return totalOrder;
     }
 
-    public void setTotalOrder(int totalOrder) {
+    public void setTotalOrder(double totalOrder) {
         this.totalOrder = totalOrder;
     }
 

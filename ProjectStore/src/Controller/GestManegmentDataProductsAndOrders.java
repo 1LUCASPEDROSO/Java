@@ -33,6 +33,6 @@ public class GestManegmentDataProductsAndOrders {
     }
     public void insertOrder (DataProduct Dp, DataOrder Do) throws SQLException
     {
-        ManegmentDataProductsAndOrders.insetOrder(Dp, Do);
+        ManegmentDataProductsAndOrders.insertOrder(Dp, Do);
     } // insert order    
 }// class
