@@ -16,12 +16,12 @@ import java.sql.SQLException;
  *
  * @author pedro
  */
-public class ListProducts extends javax.swing.JInternalFrame {
+public class listProducts extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form listProducts
      */
-    public ListProducts() {
+    public listProducts() {
         initComponents();
         jPanel2.setVisible(false);
         atualizeTable();
@@ -385,4 +385,13 @@ public class ListProducts extends javax.swing.JInternalFrame {
     private javax.swing.JTextField textPriceProduct;
     private javax.swing.JTextField textQuantityProduct;
     // End of variables declaration//GEN-END:variables
+
+
+public void teste()
+{
+    System.out.println("oioioioioioio");
+}        
+
+
+
 }

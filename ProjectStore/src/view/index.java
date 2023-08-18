@@ -35,7 +35,6 @@ public class index extends javax.swing.JFrame {
         menuAdm = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         menuBuyProduct = new javax.swing.JMenu();
         menuItemBuyProduct = new javax.swing.JMenuItem();
 
@@ -66,16 +65,13 @@ public class index extends javax.swing.JFrame {
         });
         menuAdm.add(jMenuItem3);
 
-        jMenuItem4.setText("list Products");
+        jMenuItem4.setText("manegment Products");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
             }
         });
         menuAdm.add(jMenuItem4);
-
-        jMenuItem5.setText("Delete Product");
-        menuAdm.add(jMenuItem5);
 
         jMenuBar1.add(menuAdm);
 
@@ -119,14 +115,16 @@ public class index extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-       //ListProducts LP = new ListProducts(); 
-        //jDesktopPane1.add(LP);
-        //LP.setVisible(true);
+       listProducts LP = new listProducts(); 
+        jDesktopPane1.add(LP);
+        LP.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void menuItemBuyProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuyProductActionPerformed
        //menuItemBuyProduct
                buyProduct BP = new buyProduct(); 
+               jDesktopPane1.add(BP);
+               BP.setVisible(true);
     }//GEN-LAST:event_menuItemBuyProductActionPerformed
 
     /**
@@ -170,7 +168,6 @@ public class index extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu menuAdm;
     private javax.swing.JMenu menuBuyProduct;
     private javax.swing.JMenuItem menuItemBuyProduct;
